@@ -8,11 +8,10 @@ import { User } from './../user/user.entity';
 export class AuthService {
   constructor(private emailService: EmailService) {}
 
-  async signUp(user: User) {
-    const token = Math.floor(1000 + Math.random() * 9000).toString();
+  async signUp(user: User, file) {
     // create user in db
     // ...
     // send welcome mail
-    await this.emailService.sendUserWelcome(user, token);
+    await this.emailService.sendUserWelcome(user, file);
   }
 }

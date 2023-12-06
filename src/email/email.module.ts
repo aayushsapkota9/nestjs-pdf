@@ -6,6 +6,7 @@ import { Global, Module } from '@nestjs/common';
 import { EmailService } from './email.service';
 import { join } from 'path';
 import { ConfigService } from '@nestjs/config';
+import { HtmlPdfService } from 'src/html-pdf/html-pdf.service';
 
 @Global()
 @Module({
@@ -34,7 +35,7 @@ import { ConfigService } from '@nestjs/config';
       inject: [ConfigService],
     }),
   ],
-  providers: [EmailService],
+  providers: [EmailService, HtmlPdfService],
   exports: [EmailService],
 })
 export class EmailModule {}
