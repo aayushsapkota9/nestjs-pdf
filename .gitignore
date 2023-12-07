@@ -1,5 +1,3 @@
-# Ignore all files in the "uploads" directory
-uploads/*
 
 # compiled output
 /dist
@@ -38,3 +36,7 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 .env
+/uploads/
+uploads/
+
+
