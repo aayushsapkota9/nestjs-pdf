@@ -11,7 +11,9 @@ const common_1 = require("@nestjs/common");
 const puppeteer_1 = require("puppeteer");
 let HtmlPdfService = class HtmlPdfService {
     async convertHtmlToPdf(file) {
-        const browser = await puppeteer_1.default.launch();
+        const browser = await puppeteer_1.default.launch({
+            executablePath: '/usr/bin/chromium-browser',
+        });
         const page = await browser.newPage();
         await page.setContent(file.buffer.toString('utf-8'), {
             waitUntil: 'domcontentloaded',

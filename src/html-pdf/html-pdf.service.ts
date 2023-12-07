@@ -5,7 +5,10 @@ import puppeteer from 'puppeteer';
 export class HtmlPdfService {
   async convertHtmlToPdf(file) {
     // Create a browser instance
-    const browser = await puppeteer.launch();
+    // const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser',
+    });
 
     // Create a new page
     const page = await browser.newPage();
