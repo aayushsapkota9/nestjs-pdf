@@ -60,6 +60,21 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Dependency
+
+- **@nestjs-modules/mailer**: ^1.9.1
+- **@nestjs/common**: ^10.0.0
+- **@nestjs/config**: ^3.1.1
+- **@nestjs/core**: ^10.0.0
+- **@nestjs/platform-express**: ^10.0.0
+- **class-transformer**: ^0.5.1
+- **class-validator**: ^0.14.0
+- **ejs**: ^3.1.9
+- **nodemailer**: ^6.9.7
+- **puppeteer**: ^21.5.2
+- **reflect-metadata**: ^0.1.13
+- **rxjs**: ^7.8.1
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
