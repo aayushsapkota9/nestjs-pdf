@@ -1,8 +1,8 @@
 // auth.service.ts
 
 import { Injectable } from '@nestjs/common';
-import { EmailService } from './../email/email.service';
-import { User } from './../user/user.entity';
+import { EmailService } from '../email/email.service';
+import { User } from '../user/user.entity';
 
 @Injectable()
 export class AuthService {
