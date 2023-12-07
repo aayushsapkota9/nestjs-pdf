@@ -25,6 +25,8 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
+I have used npm and ubantu to create/install everything(not sure if it works on other systems)
 ## Clone the repo and get inside the foler
 ```bash
 $ cd nestjs-pdf
