@@ -1,19 +1,16 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
 import { UserUpload } from 'src/user-upload/dtos/user-upload.entity';
-import { HtmlPdfService } from 'src/html-pdf/html-pdf.service';
+import FileInformation from 'src/user-upload/interfaces/fileInfo.interface';
 
 @Injectable()
 export class EmailService {
-  constructor(
-    private mailerService: MailerService,
-    private htmlToPdfService: HtmlPdfService,
-  ) {}
+  constructor(private mailerService: MailerService) {}
 
   async sendUserEmail(
     user: UserUpload,
     pdfBuffer: Buffer,
-    fileInformation: Object,
+    fileInformation: FileInformation,
   ) {
     await this.mailerService.sendMail({
       to: user.email,
@@ -26,7 +23,7 @@ export class EmailService {
       },
       attachments: [
         {
-          filename: 'result.pdf',
+          filename: `${fileInformation.name}.pdf`,
           content: pdfBuffer,
           encoding: 'base64', // Specify the encoding of the content
         },

@@ -15,6 +15,7 @@ import { HtmlPdfService } from 'src/html-pdf/html-pdf.service';
       useFactory: async (config: ConfigService) => ({
         transport: {
           host: config.get('MAIL_HOST'),
+          port: 587,
           secure: false,
           auth: {
             user: config.get('SMTP_USERNAME'),
