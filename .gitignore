@@ -35,4 +35,9 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 .env
+# Ignore all files in the "uploads" directory
 uploads/*
+
+# Allow files in the main directory
+!/*
+node_modules
