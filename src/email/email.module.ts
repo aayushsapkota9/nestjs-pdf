@@ -23,7 +23,7 @@ import { HtmlPdfService } from 'src/html-pdf/html-pdf.service';
           },
         },
         defaults: {
-          from: `"Nice App" <${config.get('SMTP_USERNAME')}>`,
+          from: `"Pdf Emailer" <${config.get('SMTP_USERNAME')}>`,
         },
         template: {
           dir: join(__dirname, 'templates'),
