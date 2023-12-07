@@ -57,7 +57,8 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-
+## video link for jam
+https://jam.dev/c/9b6dc2d0-8479-4aa3-809a-922e0f20c141
 ## Test
 
 ```bash
