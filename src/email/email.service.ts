@@ -10,13 +10,11 @@ export class EmailService {
     private htmlToPdfService: HtmlPdfService,
   ) {}
 
-  async sendUserWelcome(user: User, file: File) {
-    const pdfBuffer = await this.htmlToPdfService.convertHtmlToPdf(file);
-    // console.log(pdfBuffer);
+  async sendUserWelcome(user: User, pdfBuffer: Buffer) {
     await this.mailerService.sendMail({
       to: user.email,
       subject: 'Welcome to Nice App! Confirm your Email',
-      template: './welcome', // `.ejs` extension is appended automatically
+      template: './welcome', // `.ejs`
       context: {
         // filling <%= %> brackets with content
         name: user.email,

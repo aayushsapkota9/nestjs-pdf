@@ -1,4 +1,4 @@
-export interface User {
+export interface UserUpload {
   email: string;
   file: File;
 }

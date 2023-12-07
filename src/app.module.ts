@@ -3,8 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { EmailModule } from './email/email.module';
-import { AuthModule } from './auth/auth.module';
 import { HtmlPdfModule } from './html-pdf/html-pdf.module';
+import { UserUploadModule } from './user-upload/user-upload.module';
 
 @Module({
   imports: [
@@ -12,8 +12,8 @@ import { HtmlPdfModule } from './html-pdf/html-pdf.module';
       isGlobal: true, // no need to import into other modules
     }),
     EmailModule,
-    AuthModule,
     HtmlPdfModule,
+    UserUploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],

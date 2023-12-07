@@ -1,5 +1,3 @@
-// auth.controller.ts
-
 import {
   Body,
   Controller,
@@ -10,22 +8,17 @@ import {
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
-import { User } from '../user/user.entity';
-import { AuthService } from './auth.service';
+import { UserUploadService } from './user-upload.service';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { UserUpload } from './dtos/user-upload.entity';
 
-@Controller('auth')
-export class AuthController {
-  constructor(private readonly authService: AuthService) {}
-
-  // @Post()
-  // signUp(@Body() userDto: User): Promise<void> {
-  //   return this.authService.signUp(userDto);
-  // }
+@Controller('user-upload')
+export class UserUploadController {
+  constructor(private readonly userUploadService: UserUploadService) {}
   @Post('file')
   @UseInterceptors(FileInterceptor('file'))
   uploadFileAndPassValidation(
-    @Body() userUpload: User,
+    @Body() userUpload: UserUpload,
     @UploadedFile(
       new ParseFilePipe({
         validators: [
@@ -41,6 +34,6 @@ export class AuthController {
     //   // body,
     //   // file: file.buffer.toString(),
     // };
-    return this.authService.signUp(userUpload, file);
+    return this.userUploadService.convertAndEmail(userUpload, file);
   }
 }
