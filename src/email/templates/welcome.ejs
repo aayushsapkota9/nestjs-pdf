@@ -1,11 +1,17 @@
 <p>Hey <%= name %>,</p>
 <p>
-    Thanks for signing up for Nice App. We're very excited to have you on board.
+    Thanks for using our mail services. We're very excited to have you on board.
+</p>
+<p>To let you know you have uploaded files of following details
+<p>
+    The file name is <%= fileInformation.name %>The file of type <%= fileInformation.mimeType %> and the file contains
+            <%= fileInformation.size %> bits of information,
+</p>
+<p>
+    You can get pdf from http://localhost:3000/user-upload/<%= fileInformation.path %>
+</p>
 </p>
 
-<p>To get started using Nice App, please confirm your account below:</p>
-
 <p>
-    If you're having trouble clicking the confirm account button, copy and paste
-    the below URL into your web browser.
+    or You can find your file converted into html below in pdf format
 </p>

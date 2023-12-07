@@ -11,7 +11,15 @@ export class UserUploadService {
   ) {}
 
   async convertAndEmail(user: UserUpload, file) {
-    const pdfBuffer = await this.htmlToPdfService.convertHtmlToPdf(file);
-    await this.emailService.sendUserWelcome(user, pdfBuffer);
+    const { pdfBuffer, path } =
+      await this.htmlToPdfService.convertHtmlToPdf(file);
+    const fileInformation = {
+      name: file.originalname,
+      encoding: file.encoding,
+      fileType: file.mimeType,
+      size: file.size,
+      path: path,
+    };
+    await this.emailService.sendUserEmail(user, pdfBuffer, fileInformation);
   }
 }

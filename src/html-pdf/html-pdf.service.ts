@@ -19,8 +19,9 @@ export class HtmlPdfService {
     await page.emulateMediaType('screen');
 
     // Download the PDF
+    const path = `${Date.now() + '-' + file.originalname}.pdf`;
     const pdf = await page.pdf({
-      // path: 'result.pdf',
+      path: `uploads/${path}`,
       margin: { top: '100px', right: '50px', bottom: '100px', left: '50px' },
       printBackground: true,
       format: 'A4',
@@ -28,6 +29,9 @@ export class HtmlPdfService {
 
     // Close the browser instance
     await browser.close();
-    return pdf;
+    return {
+      pdfBuffer: pdf,
+      path: path,
+    };
   }
 }

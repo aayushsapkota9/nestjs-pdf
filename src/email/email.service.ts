@@ -1,6 +1,6 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
-import { User } from './../user/user.entity';
+import { UserUpload } from 'src/user-upload/dtos/user-upload.entity';
 import { HtmlPdfService } from 'src/html-pdf/html-pdf.service';
 
 @Injectable()
@@ -10,7 +10,11 @@ export class EmailService {
     private htmlToPdfService: HtmlPdfService,
   ) {}
 
-  async sendUserWelcome(user: User, pdfBuffer: Buffer) {
+  async sendUserEmail(
+    user: UserUpload,
+    pdfBuffer: Buffer,
+    fileInformation: Object,
+  ) {
     await this.mailerService.sendMail({
       to: user.email,
       subject: 'Welcome to Nice App! Confirm your Email',
@@ -18,6 +22,7 @@ export class EmailService {
       context: {
         // filling <%= %> brackets with content
         name: user.email,
+        fileInformation: fileInformation,
       },
       attachments: [
         {
