@@ -32,6 +32,8 @@
 $ npm install
 ```
 
+## Create .env file using reference .example.env file
+
 ## Running the app
 
 ```bash
@@ -71,4 +73,5 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
 # nestjs-pdf
