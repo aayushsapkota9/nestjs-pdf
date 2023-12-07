@@ -33,6 +33,11 @@ $ npm install
 ```
 
 ## Create .env file using reference .example.env file
+## Create uploads folder 
+```bash
+#make folder
+mkdir uploads
+```
 
 ## Running the app
 
