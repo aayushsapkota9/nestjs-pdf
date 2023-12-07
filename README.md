@@ -25,7 +25,10 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
+## Clone the repo and get inside the foler
+```bash
+$ cd nestjs-pdf
+``` 
 ## Installation
 
 ```bash
@@ -33,6 +36,9 @@ $ npm install
 ```
 
 ## Create .env file using reference .example.env file
+```bash
+touch .env
+```
 ## Create uploads folder 
 ```bash
 #make folder
