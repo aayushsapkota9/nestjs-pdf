@@ -3,6 +3,7 @@ import {
   Controller,
   FileTypeValidator,
   Get,
+  HttpStatus,
   InternalServerErrorException,
   MaxFileSizeValidator,
   Param,
@@ -35,13 +36,18 @@ export class UserUploadController {
       }),
     )
     file: Express.Multer.File,
+    @Res() res: Response,
   ): Promise<any> {
     try {
       await this.userUploadService.convertAndEmail(userUpload, file);
-      return 'Email has been successfully sent.';
+      return res.status(HttpStatus.OK).json({
+        success: true,
+        message: 'Email sent',
+      });
     } catch (error) {
-      console.error('Error:', error);
-      throw new InternalServerErrorException('Error sending email');
+      throw new InternalServerErrorException(
+        'An error occurred while sending the email.',
+      );
     }
   }
   @Get(':filename')

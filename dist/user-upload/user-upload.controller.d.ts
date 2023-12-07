@@ -5,6 +5,6 @@ import { Response } from 'express';
 export declare class UserUploadController {
     private readonly userUploadService;
     constructor(userUploadService: UserUploadService);
-    uploadFileAndPassValidation(userUpload: UserUpload, file: Express.Multer.File): Promise<any>;
+    uploadFileAndPassValidation(userUpload: UserUpload, file: Express.Multer.File, res: Response): Promise<any>;
     getFilePath(filename: string, res: Response): void | Response<any, Record<string, any>>;
 }

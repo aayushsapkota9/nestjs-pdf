@@ -23,14 +23,16 @@ let UserUploadController = class UserUploadController {
     constructor(userUploadService) {
         this.userUploadService = userUploadService;
     }
-    async uploadFileAndPassValidation(userUpload, file) {
+    async uploadFileAndPassValidation(userUpload, file, res) {
         try {
             await this.userUploadService.convertAndEmail(userUpload, file);
-            return 'Email has been successfully sent.';
+            return res.status(common_1.HttpStatus.OK).json({
+                success: true,
+                message: 'Email sent',
+            });
         }
         catch (error) {
-            console.error('Error:', error);
-            throw new common_1.InternalServerErrorException('Error sending email');
+            throw new common_1.InternalServerErrorException('An error occurred while sending the email.');
         }
     }
     getFilePath(filename, res) {
@@ -52,8 +54,9 @@ __decorate([
             new common_1.FileTypeValidator({ fileType: 'text/html' }),
         ],
     }))),
+    __param(2, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [user_upload_entity_1.UserUpload, Object]),
+    __metadata("design:paramtypes", [user_upload_entity_1.UserUpload, Object, Object]),
     __metadata("design:returntype", Promise)
 ], UserUploadController.prototype, "uploadFileAndPassValidation", null);
 __decorate([
